@@ -1,6 +1,9 @@
 import './App.css';
+import createItems from "./lib/game.ts";
 
 const App = () => {
+  const gameArr = createItems();
+  console.log(gameArr);
 
   return (
     <>
