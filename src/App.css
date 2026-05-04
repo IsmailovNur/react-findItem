@@ -1,0 +1,11 @@
+.main-title {
+  text-align: center;
+  font-size: 40px;
+}
+.content{
+  margin-top: 50px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}

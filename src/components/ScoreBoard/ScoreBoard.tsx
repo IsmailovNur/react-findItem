@@ -1,9 +1,13 @@
-const ScoreBoard = () => {
-  return (
-    <div>
+import type { FC } from "react";
 
-    </div>
-  );
-};
+interface ScoreboardProps {
+  tries: number;
+}
 
-export default ScoreBoard;
+const Scoreboard: FC<ScoreboardProps> = ({tries}) => (
+  <div className='scoreboard'>
+    <strong>Tries: {tries}</strong>
+  </div>
+);
+
+export default Scoreboard;

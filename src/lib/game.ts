@@ -9,7 +9,7 @@ const createItems = (): GameCell[] => {
     items.push({hasItem: false, clicked: false});
   }
   const randomIndex = Math.floor(Math.random() * items.length);
-  items[randomIndex].clicked = true;
+  items[randomIndex].hasItem = true;
 
   return items;
 };

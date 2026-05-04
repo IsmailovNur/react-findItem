@@ -1,16 +1,41 @@
 import './App.css';
 import createItems from "./lib/game.ts";
-import Cell from "./components/Cell/Cell.tsx";
+import GameBoard from "./components/GameBoard/GameBoard.tsx";
+import { useState } from "react";
+import Scoreboard from "./components/ScoreBoard/ScoreBoard.tsx";
+import ResetButton from "./components/Button/ResetButton.tsx";
 
 const App = () => {
-  const gameArr = createItems();
-  console.log(gameArr);
+  const [items, setItems] = useState(createItems());
+  const [tries, setTries] = useState(0);
+
+  const handleCellClick = (index: number) => {
+    if (items[index].clicked) return;
+
+    const newItems = items.map((item, i) =>
+      i === index ? { ...item, clicked: true } : item
+    );
+
+    setItems(newItems);
+    setTries(prev => prev + 1);
+  };
+
+  const resetGame = () => {
+    setItems(createItems());
+    setTries(0);
+  };
 
   return (
-    <>
-      <h1>Find x</h1>
-      <Cell item={{hasItem: true, clicked: true}} onClick={() => {}} />
-    </>
+    <div className="App">
+      <div className="container">
+        <h1 className='main-title'>Find x</h1>
+        <div className="content">
+          <GameBoard items={items} onCellClick={handleCellClick} />
+          <Scoreboard tries={tries} />
+          <ResetButton onReset={resetGame} />
+        </div>
+      </div>
+    </div>
   )
 }
 
