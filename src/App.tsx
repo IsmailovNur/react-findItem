@@ -37,7 +37,7 @@ const App = () => {
       <div className="container">
         <h1 className='main-title'>Find x</h1>
         <div className="content">
-          {isGameFinished && <h2 className='win-title'>X Find!!!</h2>}
+          {isGameFinished && <h2 className='win-title'>X Find!!! Please Reset game</h2>}
           <GameBoard
             items={items}
             onCellClick={handleCellClick}
