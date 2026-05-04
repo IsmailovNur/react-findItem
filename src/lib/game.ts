@@ -1,4 +1,4 @@
-interface GameCell {
+export interface GameCell {
   clicked: boolean;
   hasItem: boolean;
 }

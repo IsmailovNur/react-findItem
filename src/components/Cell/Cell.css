@@ -1,0 +1,11 @@
+.cell{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50px;
+  height: 50px;
+  background-color: #d5d4d4;
+}
+.opened{
+  background-color: #6737E7;
+}
