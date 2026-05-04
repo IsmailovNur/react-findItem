@@ -1,4 +1,5 @@
 import type { FC } from "react";
+import "./Button.css";
 
 interface ResetButtonProps {
   onReset: () => void;

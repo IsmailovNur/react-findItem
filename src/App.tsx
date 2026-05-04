@@ -8,21 +8,28 @@ import ResetButton from "./components/Button/ResetButton.tsx";
 const App = () => {
   const [items, setItems] = useState(createItems());
   const [tries, setTries] = useState(0);
+  const [isGameFinished, setIsGameFinished] = useState(false);
 
   const handleCellClick = (index: number) => {
+    if (isGameFinished || items[index].clicked) return;
     if (items[index].clicked) return;
 
     const newItems = items.map((item, i) =>
-      i === index ? { ...item, clicked: true } : item
+      i === index ? {...item, clicked: true} : item
     );
 
     setItems(newItems);
     setTries(prev => prev + 1);
+
+    if (newItems[index].hasItem) {
+      setIsGameFinished(true);
+    }
   };
 
   const resetGame = () => {
     setItems(createItems());
     setTries(0);
+    setIsGameFinished(false);
   };
 
   return (
@@ -30,7 +37,12 @@ const App = () => {
       <div className="container">
         <h1 className='main-title'>Find x</h1>
         <div className="content">
-          <GameBoard items={items} onCellClick={handleCellClick} />
+          {isGameFinished && <h2 className='win-title'>X Find!!!</h2>}
+          <GameBoard
+            items={items}
+            onCellClick={handleCellClick}
+            disabled={isGameFinished}
+          />
           <Scoreboard tries={tries} />
           <ResetButton onReset={resetGame} />
         </div>

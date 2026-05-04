@@ -1,11 +1,19 @@
-.cell{
+.cell {
   display: flex;
   justify-content: center;
   align-items: center;
   background-color: #d5d4d4;
   border: 3px solid #5075B4;
-  color: red;
+  color: #0F1017;
+  cursor: pointer;
+  transition: all 0.1s ease;
 }
-.opened{
+
+.cell:hover {
+  box-shadow: 0 0 10px rgb(103, 55, 231);
+}
+
+.opened {
+  cursor: default;
   background-color: #6737E7;
 }

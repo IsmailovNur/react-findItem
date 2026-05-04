@@ -2,4 +2,9 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  margin: 20px 0;
+}
+.score{
+  font-size: 20px;
+  color: #6737E7;
 }

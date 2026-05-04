@@ -1,4 +1,5 @@
 import type { FC } from "react";
+import "./ScoreBoard.css"
 
 interface ScoreboardProps {
   tries: number;
@@ -6,7 +7,7 @@ interface ScoreboardProps {
 
 const Scoreboard: FC<ScoreboardProps> = ({tries}) => (
   <div className='scoreboard'>
-    <strong>Tries: {tries}</strong>
+    <strong>Tries: <span className='score'>{tries}</span></strong>
   </div>
 );
 
